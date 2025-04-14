@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pancreas Website</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"> -->
+
+    <link rel="stylesheet" href="static/style.css" />
+    <style></style>
+  </head>
+
+  <body>
+    <header class="header">
+      <a href="#" class="logo"> pancreas detection </a>
+
+      <div class="icons">
+        <div class="fas fa-search" style="display: none;" id="search-btn"></div>
+        <div class="fas fa-moon" id="theme-btn"></div>
+        <div class="fas fa-user" style="display: none;" id="login-btn"></div>
+        <div class="fas fa-bars" id="menu-btn"></div>
+      </div>
+
+      <nav class="navbar">
+        <a href="#home">home</a>
+        <a href="#ct-scan">ct scan</a>
+        <!-- <a href="#contact">contact</a> -->
+        <a href="#review">team</a>
+      </nav>
+    </header>
+
+    <section class="home" id="home">
+      <div class="image" data-aos="fade-down">
+        <img src="static/home.svg" alt="" />
+      </div>
+
+      <div class="content" data-aos="fade-up">
+        <h3>Health is Fortune</h3>
+        <p>
+          The pancreas is a vital organ responsible for digestion and hormone
+          regulation, playing a crucial role in overall health. Early detection
+          of pancreatic conditions is essential for effective treatment, but
+          challenges such as small organ size, occlusion, and shape variability
+          make manual diagnosis complex. Our advanced deep learning models
+          leverage AI-powered segmentation and classification techniques to
+          enhance the accuracy and efficiency of pancreas disease detection.
+          Using state-of-the-art architectures like U-Net, YOLO, and
+          Transformer-based models, we analyze pancreas CT scans with precision,
+          providing reliable and automated diagnostic support. Explore our
+          innovative AI-driven solutions for improved pancreatic health
+          assessment.
+        </p>
+
+        <a href="#ct-scan" class="btn">explore now</a>
+      </div>
+    </section>
+
+    <section class="ct-scan" id="ct-scan">
+      <h1 class="heading">CT Scan <span>Segmentation</span></h1>
+
+      <div class="upload-container" data-aos="fade-up">
+        <form id="upload-form" enctype="multipart/form-data">
+          <div class="form-group">
+            <div class="upload-box">
+              <label for="image" class="upload-label">
+                <i class="fas fa-upload"></i>
+                <span id="file-label">Choose CT Scan Image</span>
+              </label>
+              <input
+                type="file"
+                id="image"
+                name="image"
+                accept="image/*"
+                class="custom-file-input"
+                required
+              />
+            </div>
+            <div
+              id="image-preview-container"
+              style="display: none; margin-top: 20px"
+            >
+              <img
+                id="image-preview"
+                src="#"
+                alt="Preview"
+                style="max-width: 100%; max-height: 300px; border-radius: 5px"
+              />
+            </div>
+          </div>
+          <button type="submit" class="btn predict-btn">Predict</button>
+        </form>
+      </div>
+
+      <div
+        id="result"
+        class="result-container"
+        style="display: none"
+        data-aos="fade-up"
+      >
+        <h2 class="result-heading">Segmentation Results</h2>
+        <div id="result-content"></div>
+      </div>
+
+      <div id="loader" class="loading-spinner" style="display: none">
+        <div class="spinner"></div>
+        <p>Processing your CT scan...</p>
+      </div>
+    </section>
+
+    <!-- <section class="contact" id="contact">
+      <h1 class="heading"><span>contact</span> us</h1>
+
+      <form action="" data-aos="zoom">
+        <div class="inputBox">
+          <input type="text" placeholder="name" data-aos="fade-up" />
+          <input type="email" placeholder="email" data-aos="fade-up" />
+        </div>
+
+        <div class="inputBox">
+          <input type="number" placeholder="number" data-aos="fade-up" />
+          <input type="text" placeholder="subject" data-aos="fade-up" />
+        </div>
+
+        <textarea
+          name=""
+          placeholder="your message"
+          id=""
+          cols="30"
+          rows="10"
+          data-aos="fade-up"
+        ></textarea>
+
+        <input type="submit" value="send message" class="btn" />
+      </form>
+    </section> -->
+
+    <section class="review" id="review">
+      <h1 class="heading">Team <span>Members</span></h1>
+
+      <div class="swiper-container review-slider" data-aos="zoom-in">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide slide">
+            <img src="static/ps.jpg" alt="" />
+            <h3>P.Sravani</h3>
+            <p>
+              A GMRIT Student and Team Lead of Main Project, "21341A05D2" is a
+              supportive and compassionate leader who fosters a positive work
+              environment. With a strong focus on collaboration, innovation,
+              they inspire their team toward excellence.
+            </p>
+          </div>
+
+          <div class="swiper-slide slide">
+            <img src="static/pb.jpg" alt="" />
+            <h3>P.Balaji</h3>
+            <p>
+              A GMRIT student and the Model Builder of the Main Project,
+              "21341A05D9" is an innovative thinker with a strong technical
+              foundation. Their expertise in AI and model training plays a
+              crucial role in developing accurate and efficient solutions,
+              driving the project toward impactful results.
+            </p>
+          </div>
+
+          <div class="swiper-slide slide">
+            <img src="static/di.jpg" alt="" />
+            <h3>V.Dileep Kumar</h3>
+            <p>
+              A GMRIT student and a key member of the Main Project,
+              "21341A05I6," responsible for gathering essential resources,
+              maintaining detailed documentation, and providing technical
+              support. Their meticulous approach ensures the team has accurate
+              information,and seamless technical assistance for efficient
+              project execution.
+            </p>
+          </div>
+
+          <div class="swiper-slide slide">
+            <img src="static/vv.jpg" alt="" />
+            <h3>V.V.Abhiram</h3>
+            <p>
+              A GMRIT student and the UI Designer & Integration Specialist of
+              the Main Project, "21341A05J4," responsible for crafting an
+              intuitive and visually appealing user interface. Their expertise
+              ensures seamless integration of frontend and backend components,
+              enhancing user experience and system functionality
+            </p>
+          </div>
+        </div>
+
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+
+    <section class="footer">
+      <div class="box-container">
+        <div class="box" data-aos="fade-up">
+          <h3>quick links</h3>
+          <a href="#home"> <i class="fas fa-chevron-right"></i> home </a>
+          <a href="#ct-scan"> <i class="fas fa-chevron-right"></i> ct scan </a>
+          <!-- <a href="#contact"> <i class="fas fa-chevron-right"></i> contact </a> -->
+          <a href="#review">
+            <i class="fas fa-chevron-right"></i> team members
+          </a>
+        </div>
+
+        <div class="box" data-aos="fade-up">
+          <h3>contact info</h3>
+          <!-- <a href="#"> <i class="fas fa-phone"></i> +91 8328003242 </a> -->
+          <a href="#"> <i class="fas fa-phone"></i> +91 9492553841 </a>
+          <a href="mailto:balajipicchika02@gmail.com,sravanipanchireddy2004@gmail.com,rockdileep33@gmail.com,abhiramvadaga@gmail.com">
+            <i class="fas fa-envelope"></i> Massage via email
+          </a>          
+          <a href="#"> <i class="fas fa-map-marker-alt"></i> Rajam, India </a>
+        </div>
+      </div>
+
+      <div class="credit">
+        created by <span><a href="">Gmrit Students</a></span> | all rights
+        reserved
+      </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="js/script.js"></script>
+
+    <script>
+      AOS.init({
+        duration: 800,
+        delay: 400,
+      });
+      document.getElementById("image").addEventListener("change", function (e) {
+        const file = e.target.files[0];
+        const preview = document.getElementById("image-preview");
+        const previewContainer = document.getElementById(
+          "image-preview-container"
+        );
+        const fileLabel = document.getElementById("file-label");
+
+        if (file) {
+          fileLabel.textContent = file.name;
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            preview.src = e.target.result;
+            previewContainer.style.display = "block";
+          };
+          reader.readAsDataURL(file);
+        } else {
+          fileLabel.textContent = "Choose CT Scan Image";
+          previewContainer.style.display = "none";
+        }
+      });
+      document
+        .getElementById("upload-form")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          const form = e.target;
+          const resultDiv = document.getElementById("result");
+          const resultContent = document.getElementById("result-content");
+          const loader = document.getElementById("loader");
+          const predictBtn = form.querySelector(".predict-btn");
+
+          if (!document.getElementById("image").files[0]) {
+            alert("Please select a CT scan image first.");
+            return;
+          }
+          predictBtn.disabled = true;
+          predictBtn.textContent = "Processing...";
+          loader.style.display = "block";
+          resultDiv.style.display = "none";
+
+          try {
+            const formData = new FormData(form);
+            const response = await fetch("/predict", {
+              method: "POST",
+              body: formData,
+            });
+
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+
+            const result = await response.text();
+            resultContent.innerHTML = result;
+            resultDiv.style.display = "block";
+          } catch (error) {
+            console.error("Error:", error);
+            resultContent.innerHTML =
+              '<p class="error">Error processing your CT scan. Please try again.</p>';
+            resultDiv.style.display = "block";
+          } finally {
+            predictBtn.disabled = false;
+            predictBtn.textContent = "Predict";
+            loader.style.display = "none";
+          }
+        });
+      let navbar = document.querySelector(".navbar");
+
+      document.querySelector("#menu-btn").onclick = () => {
+        navbar.classList.toggle("active");
+        loginForm.classList.remove("active");
+        searchForm.classList.remove("active");
+      };
+
+      let loginForm = document.querySelector(".login-form");
+
+      document.querySelector("#login-btn").onclick = () => {
+        loginForm.classList.toggle("active");
+        navbar.classList.remove("active");
+        searchForm.classList.remove("active");
+      };
+
+      let searchForm = document.querySelector(".search-form");
+
+      document.querySelector("#search-btn").onclick = () => {
+        searchForm.classList.toggle("active");
+        navbar.classList.remove("active");
+        loginForm.classList.remove("active");
+      };
+
+      window.onscroll = () => {
+        navbar.classList.remove("active");
+        loginForm.classList.remove("active");
+        searchForm.classList.remove("active");
+      };
+
+      document.addEventListener("DOMContentLoaded", function () {
+        let themeBtn = document.querySelector("#theme-btn");
+
+        if (themeBtn) {
+          console.log("Theme button found!");
+
+          themeBtn.onclick = () => {
+            console.log("Theme button clicked!");
+
+            themeBtn.classList.toggle("fa-sun");
+
+            if (themeBtn.classList.contains("fa-sun")) {
+              console.log("Dark mode activated");
+              document.body.classList.add("active");
+            } else {
+              console.log("Light mode activated");
+              document.body.classList.remove("active");
+            }
+          };
+        } else {
+          console.error("Theme button not found in the DOM.");
+        }
+      });
+
+      var swiper = new Swiper(".review-slider", {
+        loop: true,
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+          delay: 5500,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+        },
+      });
+    </script>
+  </body>
+</html>
