@@ -168,7 +168,7 @@ def load_models():
     global yolo_model, unet_model, maskrcnn_model, classification_model
     if yolo_model is None:
         from ultralytics import YOLO
-        yolo_model = YOLO('models/yolo.pt')
+        yolo_model = YOLO('models/YOLO.pt')
     if unet_model is None:
         unet_model = tf.keras.models.load_model('models/UNet-2.h5', compile=False)
     if maskrcnn_model is None:
