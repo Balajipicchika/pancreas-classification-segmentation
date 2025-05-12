@@ -237,11 +237,11 @@ def predict():
     encoded_unet_mask = encode_image(unet_pred_mask, cmap='gray')
     encoded_maskrcnn_mask = encode_image(maskrcnn_pred_mask, cmap='gray')
 
-    html_output = f"""<h4>Pancreas is in <span style="color:red;">{pred_label}</span> condition.</h4>"""
+    html_output = f"""<h3>Pancreas is in <span style="color:red;">{pred_label}</span> condition.</h3>"""
 
     if pred_label != "Normal":
         html_output += f"""
-            <p>Segmentation Results:</p>
+        <br/>
             <div style="display: flex; flex-wrap: wrap;">
                 <div style="margin:auto;">
                     <p>Original CT Image:</p>
