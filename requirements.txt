@@ -92,14 +92,14 @@
 #torch==2.6.0
 #torchvision==0.21.0
 
-Flask==3.1.0 --hash=sha256:6f580d2bdd84365380830acf45550f2511469f673cb4a5ae3857a3170128b034
-tensorflow==2.15.0 --hash=sha256:0d632f46f2ba09143da3a8afe9e33fb6f92fa2320ab7e886e2d0f7672af84629
-Pillow==11.1.0 --hash=sha256:1df61e80b7865d7693f4b9b9a433197a
-opencv-python==4.11.0.86 --hash=sha256:c8f1d6a797abb14f6283c0ddff96bbdd46937f64122b8c925cab503dd37f8214
-matplotlib==3.10.0 --hash=sha256:0d632f46f2ba09143da3a8afe9e33fb6f92fa2320ab7e886e2d0f7672af84629
-numpy==1.26.4 --hash=sha256:6f580d2bdd84365380830acf45550f2511469f673cb4a5ae3857a3170128b034
-ultralytics==8.3.94 --hash=sha256:0d632f46f2ba09143da3a8afe9e33fb6f92fa2320ab7e886e2d0f7672af84629
-torch==2.6.0 --hash=sha256:1df61e80b7865d7693f4b9b9a433197a
-torchvision==0.21.0 --hash=sha256:c8f1d6a797abb14f6283c0ddff96bbdd46937f64122b8c925cab503dd37f8214
-pyasn1==0.6.1 --hash=sha256:0d632f46f2ba09143da3a8afe9e33fb6f92fa2320ab7e886e2d0f7672af84629
+Flask==3.1.0
+tensorflow==2.15.0
+Pillow==11.1.0
+opencv-python==4.11.0.86
+matplotlib==3.10.0
+numpy==1.26.4
+ultralytics==8.3.94
+torch==2.6.0
+torchvision==0.21.0
+pyasn1==0.6.1
 
