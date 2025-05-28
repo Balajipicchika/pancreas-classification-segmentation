@@ -166,11 +166,11 @@ classification_model = None
 
 def load_models():
     global yolo_model, unet_model, classification_model, maskrcnn_model
-    # if yolo_model is None:
-        # from ultralytics import YOLO
-        # yolo_model = YOLO('models/YOLO.pt')
-    if unet_model is None:
-        unet_model = tf.keras.models.load_model('models/UNet-2.h5', compile=False)
+    if yolo_model is None:
+        from ultralytics import YOLO
+        yolo_model = YOLO('models/YOLO.pt')
+    # if unet_model is None:
+        # unet_model = tf.keras.models.load_model('models/UNet-2.h5', compile=False)
     # if maskrcnn_model is None:
         # maskrcnn_model = tf.keras.models.load_model('models/MaskRCNN-2.h5', compile=False)
     if classification_model is None:
@@ -227,14 +227,14 @@ def predict():
     img = request.files['image']
     img_bytes = img.read()
 
-    ct_image, unet_pred_mask = predict_mask(img_bytes, unet_model)
+    # ct_image, unet_pred_mask = predict_mask(img_bytes, unet_model)
     # _, maskrcnn_pred_mask = predict_mask(img_bytes, maskrcnn_model)
-    # yolo_pred_image = predict_yolo(img_bytes)
+    yolo_pred_image = predict_yolo(img_bytes)
     pred_label = classify_image(img_bytes)
 
-    encoded_ct_image = encode_image(ct_image, cmap='gray')
-    # encoded_yolo_image = encode_image(cv2.cvtColor(yolo_pred_image, cv2.COLOR_BGR2RGB))
-    encoded_unet_mask = encode_image(unet_pred_mask, cmap='gray')
+    # encoded_ct_image = encode_image(ct_image, cmap='gray')
+    encoded_yolo_image = encode_image(cv2.cvtColor(yolo_pred_image, cv2.COLOR_BGR2RGB))
+    # encoded_unet_mask = encode_image(unet_pred_mask, cmap='gray')
     # encoded_maskrcnn_mask = encode_image(maskrcnn_pred_mask, cmap='gray')
 
     html_output = f"""<h3>Pancreas is in <span style="color:red;">{pred_label}</span> condition.</h3>"""
@@ -267,12 +267,8 @@ def predict():
         <br/>
             <div style="display: flex; flex-wrap: wrap;">
                 <div style="margin:auto;">
-                    <p>Original CT Image:</p>
-                    <img style="max-width:100%; max-height: 300px;" src="data:image/png;base64,{encoded_ct_image}" class="img-fluid"/>
-                </div>
-                <div style="margin:auto;">
                     <p>YOLO Detection:</p>
-                    <img style="max-width:100%; max-height: 300px;" src="data:image/png;base64,{encoded_unet_mask}" class="img-fluid"/>
+                    <img style="max-width:100%; max-height: 300px;" src="data:image/png;base64,{encoded_yolo_image}" class="img-fluid"/>
                 </div>
             </div>
         """
